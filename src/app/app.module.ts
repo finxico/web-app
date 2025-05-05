@@ -46,6 +46,7 @@ import {
   MissingTranslationHandlerParams
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { DescopeAuthModule } from '@descope/angular-sdk';
 
 export class CustomMissingTranslationHandler implements MissingTranslationHandler {
   handle(params: MissingTranslationHandlerParams): string {
@@ -79,6 +80,9 @@ export function HttpLoaderFactory(http: HttpClient) {
         ]
       },
       missingTranslationHandler: { provide: MissingTranslationHandler, useClass: CustomMissingTranslationHandler }
+    }),
+    DescopeAuthModule.forRoot({
+      projectId: 'P2vYGq5mI6HKSjYBYNIObfDyrJT6'
     }),
     BrowserModule,
     BrowserAnimationsModule,
