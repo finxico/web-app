@@ -29,6 +29,11 @@ export const environment = {
     serverUrl: loadedEnv['oauthServerUrl'] || '',
     appId: loadedEnv['oauthAppId'] || ''
   },
+  descope: {
+    projectId: 'P2wuZTGSmLUwCYnLnNtcmNYJqRca',
+    baseUrl: 'https://api.descope.com', // o tu dominio custom si aplica
+    redirectUri: window.location.origin + '/auth-callback'
+  },
   warningDialog: {
     title: 'Warning',
     content:

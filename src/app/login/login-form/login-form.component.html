@@ -1,4 +1,4 @@
-<form fxLayout="column" [formGroup]="loginForm" (ngSubmit)="login()" id="login-form">
+<!-- <form fxLayout="column" [formGroup]="loginForm" (ngSubmit)="login()" id="login-form">
   <mat-form-field fxFlexAlign="center" class="login-input">
     <span matPrefix class="m-r-10">
       <fa-icon icon="user-circle" size="lg"></fa-icon>
@@ -54,4 +54,12 @@
   >
     {{ 'labels.links.Forgot Password?' | translate }}
   </button>
-</form>
+</form> -->
+
+<button mat-raised-button color="primary" fxFlexAlign="center" class="login-button" (click)="onGoogle()">
+  Ingresar con Google
+</button>
+
+<button mat-raised-button color="primary" fxFlexAlign="center" class="login-button" (click)="onPasskeys()">
+  Ingresar con Passkeys
+</button>

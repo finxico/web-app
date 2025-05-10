@@ -5,6 +5,7 @@ import { Router, CanActivate } from '@angular/router';
 /** Custom Services */
 import { Logger } from '../logger/logger.service';
 import { AuthenticationService } from './authentication.service';
+import { DescopeAuthenticationService } from './descope-authentication.service';
 
 /** Initialize logger */
 const log = new Logger('AuthenticationGuard');
@@ -20,7 +21,8 @@ export class AuthenticationGuard implements CanActivate {
    */
   constructor(
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private descopeService: DescopeAuthenticationService
   ) {}
 
   /**
@@ -29,6 +31,13 @@ export class AuthenticationGuard implements CanActivate {
    * @returns {boolean} True if user is authenticated.
    */
   canActivate(): boolean {
+    if (this.descopeService.isLoggedIn()) {
+      console.log('DESCOPE AUTHENTICATED');
+      return true;
+    } else {
+      console.log('DESCOPE NO AUTHENTICATED');
+    }
+
     if (this.authenticationService.isAuthenticated()) {
       return true;
     }

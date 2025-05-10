@@ -7,6 +7,7 @@ import { finalize } from 'rxjs/operators';
 
 /** Custom Services */
 import { AuthenticationService } from '../../core/authentication/authentication.service';
+import { DescopeAuthenticationService } from 'app/core/authentication/descope-authentication.service';
 
 /**
  * Login form component.
@@ -30,8 +31,16 @@ export class LoginFormComponent implements OnInit {
    */
   constructor(
     private formBuilder: FormBuilder,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private auth: DescopeAuthenticationService
   ) {}
+
+  onGoogle() {
+    this.auth.loginWithGoogle();
+  }
+  onPasskeys() {
+    this.auth.loginWithPasskeys('david.martinez@telicorp.com.mx').catch(console.error);
+  }
 
   /**
    * Creates login form.

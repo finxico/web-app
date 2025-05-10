@@ -46,6 +46,7 @@ import {
   MissingTranslationHandlerParams
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { AuthCallbackComponent } from './core/authentication/auth-callback.component';
 
 export class CustomMissingTranslationHandler implements MissingTranslationHandler {
   handle(params: MissingTranslationHandlerParams): string {
@@ -110,7 +111,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   declarations: [
     WebAppComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AuthCallbackComponent
   ],
   providers: [DatePipe],
   bootstrap: [WebAppComponent]
